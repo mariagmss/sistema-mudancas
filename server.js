@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import adminRoutes from "./src/routes/AdminRoute.js";
+import autonomoRoutes from "./src/routes/AutonomRoute.js"
 
 dotenv.config();
 
@@ -12,10 +13,13 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use("/api/admins", adminRoutes);
+app.use("/apin/autonomos", autonomoRoutes);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 5000,
+    });
     console.log(" Conectado ao MongoDB");
 
     app.listen(PORT, () => console.log(` Servidor rodando na porta ${PORT}`));
@@ -25,3 +29,10 @@ const connectDB = async () => {
 };
 
 connectDB();
+
+
+app.get("/", (req, res) => {
+  res.send("Servidor conectado ao MongoDB remoto!");
+});
+
+app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));

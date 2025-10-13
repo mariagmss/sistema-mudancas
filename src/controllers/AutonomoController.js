@@ -1,6 +1,6 @@
-import Autonomo from "../models/Autonomo";
+import Autonomo from "../models/Autonomo.js";
 
-export const cadastarAutonomo = async (req, res) => {
+export const cadastrarAutonomo = async (req, res) => {
   try {
     const autonomo = new Autonomo(req.body);
     const autonomoCadastrado = await autonomo.save();
