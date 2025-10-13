@@ -1,9 +1,12 @@
 import express from "express";
-import { criarAdmin, listarAdmins } from "../controllers/AdminController";
+import {
+  cadastrarAdmin,
+  listarAdmins,
+} from "../controllers/AdminController.js";
 
 const router = express.Router();
 
-router.post("/", criarAdmin);
+router.post("/", cadastrarAdmin);
 
 router.get("/", listarAdmins);
 

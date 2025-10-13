@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import adminRoutes from "./src/routes/AdminRoute";
+import adminRoutes from "./src/routes/AdminRoute.js";
 
 dotenv.config();
 
