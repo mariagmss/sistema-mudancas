@@ -6,11 +6,6 @@ const dataSchema = new mongoose.Schema({
     required: true,
   },
 
-  diaria: {
-    type: String,
-    required: true,
-  },
-
   autonomo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Autonomo",

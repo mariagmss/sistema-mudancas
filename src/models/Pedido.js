@@ -27,6 +27,18 @@ const pedidoSchema = new mongoose.Schema({
     required: true,
   },
 
+  funcionario: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Funcionario",
+    required: true,
+  },
+
+  autonomo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Autonomo",
+    required: true,
+  },
+
   veiculo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Veiculo",
